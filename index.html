@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一年级语文《池上》课前预习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+
+        body {
+            background-color: #f0f9ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 标题区样式 - 使用图片背景 */
+        .title-section {
+            text-align: center;
+            padding: 40px 20px;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+                url('res/a.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+            border-radius: 15px;
+        }
+
+        .title-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: #4facfe;
+            border-left: 5px solid #4facfe;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #4facfe, #1890ff);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, #1890ff, #096dd9);
+            transform: scale(1.05);
+        }
+
+        /* 统一尺寸的字词卡片 */
+        .word-card {
+            display: inline-block;
+            background: linear-gradient(135deg, #e6f7ff, #bae7ff);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            width: 140px;
+            height: 160px;
+            box-shadow: 0 4px 8px rgba(79, 172, 254, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(79, 172, 254, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-card:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #bae7ff, #91d5ff);
+            box-shadow: 0 6px 12px rgba(79, 172, 254, 0.3);
+        }
+
+        .word-pinyin {
+            font-size: 1.3rem;
+            color: #1890ff;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .word-character {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #096dd9;
+            font-weight: bold;
+        }
+
+        .word-meaning {
+            font-size: 0.9rem;
+            color: #666;
+            padding-top: 3px;
+            border-top: 1px dashed rgba(79, 172, 254, 0.5);
+        }
+
+        /* 更新：古诗区域使用图片背景 */
+        .poem-container {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+                url('res/b.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+            border-left: 5px solid #bae7ff;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .poem-title {
+            font-family: "楷体";
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .poem-line {
+            font-family: "楷体";
+            font-size: 1.8rem;
+            margin: 8px 0;
+            text-align: center;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .poem-author {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #52c41a;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* 功能按钮区域 */
+        .function-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .function-button {
+            background: linear-gradient(135deg, #4facfe, #1890ff);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(79, 172, 254, 0.3);
+            font-weight: bold;
+            min-width: 140px;
+        }
+
+        .function-button:hover {
+            background: linear-gradient(135deg, #1890ff, #096dd9);
+            transform: scale(1.05);
+        }
+
+        .audio-controls {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .game-area {
+            background: #fff7e6;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .spinner-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .spinner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            background: conic-gradient(
+                #4facfe, #00f2fe, #1890ff, #096dd9,
+                #0050b3, #003a8c, #4facfe
+            );
+            transition: transform 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .spinner.spinning {
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner-inner {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #096dd9;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .highlight {
+            background-color: #fff566;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .poem-explanation {
+            background: linear-gradient(135deg, #f6ffed, #d9f7be);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .explanation-title {
+            color: #237804;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .explanation-item {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .explanation-item::before {
+            content: "•";
+            color: #52c41a;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .word-card {
+                width: 120px;
+                height: 150px;
+                margin: 8px;
+            }
+
+            .word-character {
+                font-size: 2.2rem;
+            }
+
+            .poem-container {
+                padding: 20px;
+            }
+
+            .poem-line {
+                font-size: 1.4rem;
+            }
+
+            .function-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .function-button {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区 -->
+        <div class="title-section">
+            <div class="title-text">
+                <div class="main-title">池 上</div>
+                <div class="sub-title">一年级语文 · 课前预习</div>
+            </div>
+        </div>
+
+        <!-- 字词学习区 -->
+        <section class="section" id="word-learning">
+            <h2 class="section-title">字词锦囊</h2>
+            <p>点击下面的字词卡片，学习它们的读音和意思：</p>
+
+            <div id="word-cards-container">
+                <!-- 字词卡片将通过JavaScript动态生成 -->
+            </div>
+        </section>
+
+         <!-- 识字游戏区 -->
+        <section class="section" id="interactive-game">
+            <h2 class="section-title">识字小游戏</h2>
+            <p>点击开始按钮，转盘会随机停止在一个生字上，请你说出这个字的读音！</p>
+
+            <div class="game-area">
+                <div class="spinner-container">
+                    <div class="spinner" id="spinner">
+                        <div class="spinner-inner" id="current-word">开始</div>
+                    </div>
+                </div>
+
+                <button class="button" id="startGame">开始游戏</button>
+                <button class="button" id="stopGame" disabled>停止</button>
+
+                <div id="game-result" style="margin-top: 20px; font-size: 1.2rem;"></div>
+            </div>
+        </section>
+
+        <!-- 古诗学习区 -->
+        <section class="section" id="poem-study">
+            <h2 class="section-title">古诗《池上》学习</h2>
+            <div class="poem-container">
+                <div class="poem-title">池 上</div>
+                <div class="poem-line">[唐] 白居易</div>
+                <div class="poem-line">小娃撑小艇，偷采白莲回。</div>
+                <div class="poem-line">不解藏踪迹，浮萍一道开。</div>
+            </div>
+
+            <!-- 功能按钮 -->
+            <div class="function-buttons">
+                <button class="function-button" id="knowPoetBtn">知诗人</button>
+                <button class="function-button" id="understandPoemBtn">明诗意</button>
+                <button class="function-button" id="singPoemBtn">唱诗歌</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>陈千一 · 一年级语文《池上》课前预习智能体</p>
+            <p>设计理念：通过交互式学习激发学生学习兴趣，帮助理解古诗内容。</p>
+        </footer>
+    </div>
+
+    <!-- 知诗人模态框 -->
+    <div class="modal" id="poetModal">
+        <div class="modal-content">
+            <button class="close-button" id="closePoetModal">×</button>
+            <div style="text-align: center;">
+                <h2 style="color: #096dd9; margin-bottom: 20px;">诗人白居易</h2>
+
+                <div style="text-align: left; line-height: 1.6;">
+                    <div style="text-align: center;">
+                         <img src="res/c.jpg" width="100" alt="示例图片">
+                    </div>
+
+
+                    <p><strong>白居易（772年－846年）</strong>，字乐天，号香山居士，唐代伟大的现实主义诗人。</p>
+
+                    <p>他的诗歌题材广泛，形式多样，语言通俗易懂，被称为"诗魔"和"诗王"。</p>
+                    <p>白居易倡导"新乐府运动"，主张"文章合为时而著，歌诗合为事而作"。</p>
+                    <p>《池上》是白居易的代表作之一，通过描写小孩偷采白莲的情景，展现了儿童的纯真和自然的美好。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 明诗意模态框 -->
+    <div class="modal" id="meaningModal">
+        <div class="modal-content">
+            <button class="close-button" id="closeMeaningModal">×</button>
+            <h2 style="color: #237804; text-align: center; margin-bottom: 20px;">《池上》诗意讲解</h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <video id="poemVideo" controls style="width: 100%; max-width: 500px; border-radius: 10px;">
+                    <source src="res/a.mp4" type="video/mp4">
+                    <source src="res/poem-explanation.webm" type="video/webm">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+            <div class="poem-explanation">
+                <div class="explanation-title">诗意解释：</div>
+                <div class="explanation-item">一个小孩撑着一只小船</div>
+                <div class="explanation-item">偷偷地采摘了白莲往回走</div>
+                <div class="explanation-item">他不知道怎么掩藏自己的踪迹</div>
+                <div class="explanation-item">水面的浮萍被船荡开，留下了一道长长的痕迹</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 唱诗歌模态框 -->
+    <div class="modal" id="singModal">
+        <div class="modal-content">
+            <button class="close-button" id="closeSingModal">×</button>
+            <h2 style="color: #237804; text-align: center; margin-bottom: 20px;">《池上》诗歌吟唱</h2>
+            <div style="text-align: center;">
+                <audio id="poemAudio" controls style="width: 100%; max-width: 400px; margin: 20px 0;">
+                    <source src="res/b.mp3" type="audio/mpeg">
+                    <source src="res/poem-song.ogg" type="audio/ogg">
+                    您的浏览器不支持音频播放
+                </audio>
+                <p style="color: #666; margin-top: 10px;">听《池上》诗歌吟唱，感受诗歌韵律之美</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 字词数据
+        const words = [
+            { char: "诗", pinyin: "shī", meaning: "诗歌" },
+            { char: "首", pinyin: "shǒu", meaning: "量词，用于诗歌" },
+            { char: "偷", pinyin: "tōu", meaning: "偷偷地" },
+            { char: "浮", pinyin: "fú", meaning: "漂浮" },
+            { char: "萍", pinyin: "píng", meaning: "浮萍" },
+            { char: "泉", pinyin: "quán", meaning: "泉水" },
+            { char: "眼", pinyin: "yǎn", meaning: "眼睛，泉眼" },
+            { char: "爱", pinyin: "ài", meaning: "喜爱" },
+            { char: "惜", pinyin: "xī", meaning: "珍惜" },
+            { char: "照", pinyin: "zhào", meaning: "拍照，照射" },
+            { char: "柔", pinyin: "róu", meaning: "柔和" },
+            { char: "荷", pinyin: "hé", meaning: "荷花" },
+            { char: "角", pinyin: "jiǎo", meaning: "尖角" }
+        ];
+
+        // 初始化字词卡片
+        function initWordCards() {
+            const container = document.getElementById('word-cards-container');
+
+            words.forEach(word => {
+                const card = document.createElement('div');
+                card.className = 'word-card';
+                card.innerHTML = `
+                    <div class="word-pinyin">${word.pinyin}</div>
+                    <div class="word-character">${word.char}</div>
+                    <div class="word-meaning">${word.meaning}</div>
+                `;
+
+                card.addEventListener('click', () => {
+                    // 创建自定义弹窗
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.5);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000;
+                    `;
+
+                    modal.innerHTML = `
+                        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; max-width: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                            <div style="font-size: 3rem; color: #096dd9; margin-bottom: 15px;">${word.char}</div>
+                            <div style="font-size: 1.5rem; color: #1890ff; margin-bottom: 10px;">拼音：${word.pinyin}</div>
+                            <div style="font-size: 1.2rem; color: #666; margin-bottom: 20px;">意思：${word.meaning}</div>
+                            <button id="closeModal" style="background: #4facfe; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;">关闭</button>
+                        </div>
+                    `;
+
+                    document.body.appendChild(modal);
+
+                    // 关闭弹窗
+                    modal.querySelector('#closeModal').addEventListener('click', () => {
+                        document.body.removeChild(modal);
+                    });
+
+                    // 点击背景关闭
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            document.body.removeChild(modal);
+                        }
+                    });
+
+                    // 语音朗读
+                    speakText(word.char);
+                });
+
+                container.appendChild(card);
+            });
+        }
+
+        // 文本转语音功能
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('您的浏览器不支持语音朗读功能');
+            }
+        }
+
+        // 识字游戏
+        let gameInterval;
+        let isSpinning = false;
+        let currentWordIndex = 0;
+        const spinner = document.getElementById('spinner');
+        const startGameBtn = document.getElementById('startGame');
+        const stopGameBtn = document.getElementById('stopGame');
+        const currentWordElement = document.getElementById('current-word');
+
+        function startGame() {
+            if (isSpinning) return;
+
+            isSpinning = true;
+            startGameBtn.disabled = true;
+            stopGameBtn.disabled = false;
+
+            // 添加旋转动画类
+            spinner.classList.add('spinning');
+
+            // 快速切换文字
+            gameInterval = setInterval(() => {
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                currentWordElement.textContent = words[currentWordIndex].char;
+            }, 100);
+
+            document.getElementById('game-result').textContent = '';
+        }
+
+        function stopGame() {
+            if (!isSpinning) return;
+
+            clearInterval(gameInterval);
+            isSpinning = false;
+
+            // 移除旋转动画类
+            spinner.classList.remove('spinning');
+
+            // 随机选择一个字
+            const randomIndex = Math.floor(Math.random() * words.length);
+            const selectedWord = words[randomIndex];
+
+            // 设置最终显示的字
+            currentWordIndex = randomIndex;
+            currentWordElement.textContent = selectedWord.char;
+
+            // 启用开始按钮，禁用停止按钮
+            startGameBtn.disabled = false;
+            stopGameBtn.disabled = true;
+
+            // 显示结果
+            const resultElement = document.getElementById('game-result');
+            resultElement.innerHTML = `
+                你抽到的字是：<span class="highlight">${selectedWord.char}</span><br>
+                拼音是：<span class="highlight">${selectedWord.pinyin}</span><br>
+                意思是：<span class="highlight">${selectedWord.meaning}</span>
+            `;
+
+            // 朗读选中的字
+            speakText(selectedWord.char);
+        }
+
+        // 模态框控制函数
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+
+            // 停止播放视频
+            if (modalId === 'meaningModal') {
+                const video = document.getElementById('poemVideo');
+                video.pause();
+                video.currentTime = 0;
+            }
+
+            // 停止播放音频
+            if (modalId === 'singModal') {
+                const audio = document.getElementById('poemAudio');
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initWordCards();
+
+            // 事件监听 - 游戏按钮
+            document.getElementById('startGame').addEventListener('click', startGame);
+            document.getElementById('stopGame').addEventListener('click', stopGame);
+
+            // 事件监听 - 功能按钮
+            document.getElementById('knowPoetBtn').addEventListener('click', function() {
+                openModal('poetModal');
+            });
+
+            document.getElementById('understandPoemBtn').addEventListener('click', function() {
+                openModal('meaningModal');
+            });
+
+            document.getElementById('singPoemBtn').addEventListener('click', function() {
+                openModal('singModal');
+            });
+
+            // 事件监听 - 关闭按钮
+            document.getElementById('closePoetModal').addEventListener('click', function() {
+                closeModal('poetModal');
+            });
+
+            document.getElementById('closeMeaningModal').addEventListener('click', function() {
+                closeModal('meaningModal');
+            });
+
+            document.getElementById('closeSingModal').addEventListener('click', function() {
+                closeModal('singModal');
+            });
+
+            // 点击模态框背景关闭
+            document.getElementById('poetModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal('poetModal');
+                }
+            });
+
+            document.getElementById('meaningModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal('meaningModal');
+                }
+            });
+
+            document.getElementById('singModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal('singModal');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
